@@ -18,6 +18,7 @@ WHERE winner ='Albert Einstein';
 SELECT winner FROM nobel 
 WHERE subject = 'peace'
 AND yr >= 2000;
+
 -- 5.Show all details (yr, subject, winner) of the literature prize winners for 1980 to 1989 inclusive.
 SELECT yr, subject, winner FROM nobel 
 WHERE subject = 'literature' AND yr BETWEEN 1980 AND 1989;
@@ -32,6 +33,6 @@ SELECT * FROM nobel
                   'jimmy Carter',
                   'Barack Obama');
 
-
-
 -- 7.Show the winners with first name John
+SELECT winner from nobel
+WHERE winner LIKE 'john%';
