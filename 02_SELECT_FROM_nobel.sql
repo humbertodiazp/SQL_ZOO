@@ -25,7 +25,12 @@ WHERE subject = 'literature' AND yr BETWEEN 1980 AND 1989;
 -- Theodore Roosevelt
 -- Thomas Woodrow Wilson
 -- Jimmy Carter
--- Barack Obama
+-- Barack Obama'
+SELECT * FROM nobel
+ WHERE winner IN ('Theodore Roosevelt',
+                  'Woodrow Wilson',
+                  'jimmy Carter',
+                  'Barack Obama');
 
 
 
