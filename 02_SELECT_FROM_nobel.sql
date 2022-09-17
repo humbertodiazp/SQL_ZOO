@@ -19,7 +19,8 @@ SELECT winner FROM nobel
 WHERE subject = 'peace'
 AND yr >= 2000;
 -- 5.Show all details (yr, subject, winner) of the literature prize winners for 1980 to 1989 inclusive.
-
+SELECT yr, subject, winner FROM nobel 
+WHERE subject = 'literature' AND yr BETWEEN 1980 AND 1989;
 -- 6. Show all details of the presidential winners:
 -- Theodore Roosevelt
 -- Thomas Woodrow Wilson
