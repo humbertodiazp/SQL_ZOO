@@ -57,6 +57,8 @@ OR (subject = 'literature' AND yr >= '2004');
 SELECT yr, subject, winner FROM nobel 
 WHERE winner LIKE '%GRÜ%';
 
---
+--12. Find all details of the prize won by EUGENE O'NEILL
+SELECT yr, subject, winner FROM nobel 
+WHERE winner like 'EUGENE O''NEILL';
 
 
