@@ -77,4 +77,16 @@ SELECT name, continent, population FROM world x
   WHERE 25000000>=ALL (SELECT population FROM world y
                          WHERE x.continent=y.continent
                          AND population>0)
-                         
+
+-- 10.Some countries have populations more than three times 
+-- that of all of their neighbours (in the same continent). Give the countries and continents.
+SELECT name, continent 
+FROM world x 
+WHERE population/3 >= ALL
+    (SELECT population
+     FROM world y
+     WHERE y.continent=x.continent
+     AND x.name <> y.name)
+-- when you do the sub-query that checks population/3 >= (all of y.continent) YOU MUST SPECIFY
+--  NOT TO CHECK AGAINST THE SAME COUNTRY; 
+-- otherwise you are stating to check that x> x/3 which is always true. 
