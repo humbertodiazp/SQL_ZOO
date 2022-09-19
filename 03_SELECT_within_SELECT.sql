@@ -69,3 +69,4 @@ SELECT continent, name FROM world x
     (SELECT name FROM world y
         WHERE y.continent=x.continent
           AND population>0)
+
