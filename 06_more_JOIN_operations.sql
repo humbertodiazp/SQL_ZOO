@@ -44,3 +44,13 @@ SELECT id
 FROM movie
 WHERE title='Alien') 
 GROUP BY name
+
+-- 8.
+-- List the films in which 'Harrison Ford' has appeared
+SELECT title 
+FROM movie JOIN casting on id = movieid
+WHERE actorid = (
+SELECT id 
+FROM actor 
+WHERE name = 'Harrison Ford')
+GROUP BY title
