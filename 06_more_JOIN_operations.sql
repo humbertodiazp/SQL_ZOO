@@ -54,3 +54,23 @@ SELECT id
 FROM actor 
 WHERE name = 'Harrison Ford')
 GROUP BY title
+
+-- 9.
+-- List the films where 'Harrison Ford' has appeared - but not in the starring role.
+SELECT title 
+FROM movie JOIN casting on id = movieid
+WHERE actorid = (
+SELECT id 
+FROM actor 
+WHERE name = 'Harrison Ford') AND ord != 1
+GROUP BY title
+
+-- 10. List the films together with the leading star for all 1962 films.
+SELECT movie.title, actor.name
+FROM movie
+JOIN casting
+ON casting.movieid = movie.id
+JOIN actor
+ON actor.id = casting.actorid
+WHERE movie.yr = 1962
+AND casting.ord = 1;
