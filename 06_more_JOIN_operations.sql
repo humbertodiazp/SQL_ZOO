@@ -97,3 +97,13 @@ WHERE movie.id IN (
   WHERE actorid IN(
     SELECT id FROM actor 
        WHERE name='Julie Andrews'))
+
+-- 13. Obtain a list, in alphabetical order, of actors who've had at least 15 starring roles.
+
+SELECT name
+FROM actor
+JOIN casting
+ON actorid = id
+WHERE ord = 1
+GROUP BY name
+HAVING COUNT(actorid) >= 15;
