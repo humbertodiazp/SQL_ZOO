@@ -29,3 +29,11 @@ HAVING COUNT(*) = 2
 SELECT a.company, a.num, a.stop, b.stop FROM
 	route AS a JOIN route AS b ON (a.company = b.company AND a.num = b.num)
 	WHERE a.stop = 53 AND b.stop = 149
+
+-- 6.
+-- Change the query so that the services between 'Craiglockhart' and 'London Road' are shown.
+    SELECT a.company, a.num, astop.name, bstop.name FROM
+	route AS a JOIN route AS b ON (a.company = b.company AND a.num = b.num)
+			   JOIN stops AS astop ON (a.stop = astop.id)
+			   JOIN stops AS bstop ON (b.stop = bstop.id)
+	WHERE astop.name = 'Craiglockhart' AND bstop.name = 'London Road'
