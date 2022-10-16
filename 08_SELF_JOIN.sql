@@ -37,3 +37,13 @@ SELECT a.company, a.num, a.stop, b.stop FROM
 			   JOIN stops AS astop ON (a.stop = astop.id)
 			   JOIN stops AS bstop ON (b.stop = bstop.id)
 	WHERE astop.name = 'Craiglockhart' AND bstop.name = 'London Road'
+
+-- 7.
+-- Give a list of all the services which connect stops 115 and 137 ('Haymarket' and 'Leith')
+SELECT a.company, a.num
+FROM route AS a JOIN route AS b ON (a.company = b.company AND a.num = b.num)
+                JOIN stops AS astop ON (a.stop = astop.id)
+                JOIN stops AS bstop ON (b.stop = bstop.id)
+WHERE astop.name = 'Haymarket' 
+AND bstop.name = 'Leith'
+GROUP BY company, num
